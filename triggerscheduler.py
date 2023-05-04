@@ -7,7 +7,7 @@ trigger = TriggerScheduler(pooling_frequency_minutes=1.0)
 trigger.add_dataset_trigger(
     name='Retrain On Dataset',
     # schedule_function=lambda x: print("Hey Mom!"),
-    schedule_task_id='1f37a06dca1d4f62bb8bf5303756dd79', # you can also schedule an existing task to be executed
+    schedule_task_id='019023d2b910415286a810a38603e2a8', # you can also schedule an existing task to be executed
     schedule_queue='default',
     trigger_project='Full Overview',
     trigger_name='Fashion MNIST'

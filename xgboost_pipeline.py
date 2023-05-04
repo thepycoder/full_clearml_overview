@@ -2,7 +2,10 @@ from clearml import TaskTypes
 from clearml.automation.controller import PipelineDecorator
 
 
-@PipelineDecorator.component(return_values=['X_train', 'y_train', 'X_test', 'y_test'], cache=True, task_type=TaskTypes.data_processing)
+@PipelineDecorator.component(
+    return_values=['X_train', 'y_train', 'X_test', 'y_test'],
+    task_type=TaskTypes.data_processing
+)
 def prepare_data(dataset_name):
     # Imports first
     from clearml import Dataset
@@ -110,6 +113,9 @@ def run_pipeline(dataset_name):
         accuracy = evaluate_model(model, X_test, y_test)
         Task.current_task().get_logger().report_single_value(name="Accuracy", value=accuracy)
         
+        # This is blocked until the final step is completed successfully!
+        print(accuracy)
+
         return accuracy
 
 

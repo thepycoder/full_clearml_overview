@@ -35,13 +35,13 @@ dtest = xgb.DMatrix(X_test, label=y_test)
 params = {
     "objective": "reg:squarederror",
     "eval_metric": "rmse",
-    "max_depth": 4,  # the maximum depth of each tree
+    "max_depth": 3,  # the maximum depth of each tree
     "eta": 0.3,  # the training step for each iteration
     "gamma": 0,
     "max_delta_step": 1,
     "subsample": 1,
     "sampling_method": "uniform",
-    "seed": 42
+    "seed": 1337
 }
 task.connect(params)
 

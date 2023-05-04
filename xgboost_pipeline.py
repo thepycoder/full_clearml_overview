@@ -1,12 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import xgboost as xgb
-import pandas as pd
-from sklearn.metrics import accuracy_score
-from xgboost import plot_tree
-
+from clearml import TaskTypes
 from clearml.automation.controller import PipelineDecorator
-from clearml import Task, Dataset, TaskTypes
 
 
 @PipelineDecorator.component(return_values=['X_train', 'y_train', 'X_test', 'y_test'], cache=True, task_type=TaskTypes.data_processing)

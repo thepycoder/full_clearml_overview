@@ -11,7 +11,7 @@ from clearml import Task
 
 # Connecting ClearML with the current process,
 # from here on everything is logged automatically
-task = Task.init(project_name='examples', task_name='XGBoost simple example', output_uri=True)
+task = Task.init(project_name='Full Overview', task_name='XGBoost simple example', output_uri=True)
 
 # Read the data
 fashion_mnist_test = pd.read_csv("fashion_mnist/fashion-mnist_test.csv")

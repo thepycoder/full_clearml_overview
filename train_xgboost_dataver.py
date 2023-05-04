@@ -11,7 +11,7 @@ from clearml import Task, Dataset
 
 # Connecting ClearML with the current process,
 # from here on everything is logged automatically
-task = Task.init(project_name='examples', task_name='XGBoost simple example', output_uri=True)
+task = Task.init(project_name='Full Overview', task_name='XGBoost simple example', output_uri=True)
 
 # Read the data
 data_path = Dataset.get(dataset_name="Fashion MNIST", alias="Fashion MNIST").get_local_copy()

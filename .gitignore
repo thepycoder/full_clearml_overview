@@ -1,2 +1,5 @@
 .venv
 fashion_mnist
+best_model
+data
+runs

@@ -3,7 +3,6 @@ import numpy as np
 import xgboost as xgb
 import pandas as pd
 from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
 from xgboost import plot_tree
 
 from clearml import Task

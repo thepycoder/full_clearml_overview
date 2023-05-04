@@ -1,17 +1,20 @@
+import matplotlib.pyplot as plt
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torchvision import datasets, transforms
-from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
-import numpy as np
-
 from clearml import Task
+from sklearn.metrics import confusion_matrix
+from torch.utils.tensorboard import SummaryWriter
+from torchvision import datasets, transforms
+
 task = Task.init(
     project_name="Full Overview",
     task_name="model_training"
 )
 
+# Writer will output to ./runs/ directory by default
+writer = SummaryWriter()
 
 # Define the transformation to apply to the data
 transform = transforms.Compose([
@@ -50,6 +53,9 @@ for epoch in range(10):
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
+        
+        # Tensorboard
+        writer.add_scalar('Loss/train', loss, epoch * len(trainloader) + i)
 
         # Print statistics
         running_loss += loss.item()
